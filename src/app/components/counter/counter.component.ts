@@ -62,3 +62,4 @@ export class CounterComponent {
   this.counterName = '';
   this.count = 0;
 }
+}
