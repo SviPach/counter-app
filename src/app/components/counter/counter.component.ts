@@ -25,7 +25,7 @@ import { SavedCounter } from '../../models/saved-counter';
   ],
 })
 export class CounterComponent {
-  readonly heading = input('Nové počítadlo');
+  readonly heading = input('New counter');
   readonly saved = output<SavedCounter>();
 
   counterName = '';
