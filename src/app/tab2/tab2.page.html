@@ -11,7 +11,7 @@
       <p>Načítám historii…</p>
     </div>
   } @else if (counterService.counters().length === 0) {
-    <p class="state-message"></p>History is empty.</p>
+    <p class="state-message">History is empty.</p>
   } @else {
     <div class="history-header">
       <p>Počet záznamů: {{ counterService.counters().length }}</p>
