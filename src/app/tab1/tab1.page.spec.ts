@@ -20,12 +20,12 @@ describe('Tab1Page', () => {
   it('should add the newest saved counter to the beginning', () => {
     const first: SavedCounter = {
       id: 'first',
-      name: 'První',
+      name: 'First',
       value: 1,
     };
     const second: SavedCounter = {
       id: 'second',
-      name: 'Druhé',
+      name: 'Second',
       value: 2,
     };
 
