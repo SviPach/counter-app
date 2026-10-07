@@ -8,15 +8,22 @@
   @if (!counterService.initialized()) {
     <div class="state-message">
       <ion-spinner></ion-spinner>
-      <p>Načítám historii…</p>
+      <p>Reading history…</p>
     </div>
   } @else if (counterService.counters().length === 0) {
     <p class="state-message">History is empty.</p>
   } @else {
     <div class="history-header">
-      <p>Počet záznamů: {{ counterService.counters().length }}</p>
+      <p>Number of counters: {{ counterService.counters().length }}</p>
+
+      <div class="value-stats">
+        <p>Positive values: {{ valueStats().positive }}</p>
+        <p>Negative values: {{ valueStats().negative }}</p>
+        <p>Zero values: {{ valueStats().zero }}</p>
+      </div>
+
       <ion-button color="danger" fill="outline" size="small" (click)="clear()">
-        Vymazat vše
+        Clear All
       </ion-button>
     </div>
 
