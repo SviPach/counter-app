@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Historie</ion-title>
+    <ion-title>History</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
       <p>Načítám historii…</p>
     </div>
   } @else if (counterService.counters().length === 0) {
-    <p class="state-message">Historie je zatím prázdná.</p>
+    <p class="state-message"></p>History is empty.</p>
   } @else {
     <div class="history-header">
       <p>Počet záznamů: {{ counterService.counters().length }}</p>
