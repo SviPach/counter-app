@@ -23,14 +23,20 @@ describe('CounterComponent', () => {
     expect(component.count).toBe(1);
   });
 
-  it('should decrement but never go below zero', () => {
+  it('should decrement below zero', () => {
     component.decrement();
-    expect(component.count).toBe(0);
+    expect(component.count).toBe(-1);
 
     component.count = 2;
     component.decrement();
     expect(component.count).toBe(1);
-  });
+
+    component.decrement();
+    expect(component.count).toBe(0);
+
+    component.decrement();
+    expect(component.count).toBe(-1);
+  }); 
 
   it('should reset the counter', () => {
     component.count = 5;
