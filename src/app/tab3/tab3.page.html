@@ -1,28 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Odpočet do svátku</ion-title>
+    <ion-title>Countdown to Holiday</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="page-content">
     <section aria-labelledby="holidays-heading" [attr.aria-busy]="loading()">
-      <h2 id="holidays-heading">Kolik dnů zbývá do…</h2>
-      <p>Vyberte český svátek a zobrazte počet zbývajících kalendářních dnů.</p>
+      <h2 id="holidays-heading">How many days are left until…</h2>
+      <p>Choose a Czech holiday and see the number of remaining calendar days.</p>
 
       <ion-button [disabled]="loading()" (click)="loadHolidays()">
-        {{ loading() ? 'Načítám…' : 'Načíst znovu' }}
+        {{ loading() ? 'Reading…' : 'Read again' }}
       </ion-button>
 
       @if (loading()) {
         <div class="state-message" role="status">
           <ion-spinner aria-hidden="true"></ion-spinner>
-          <p>Načítám svátky…</p>
+          <p>Reading holidays…</p>
         </div>
       } @else if (errorMessage()) {
         <p class="state-message error-message" role="alert">{{ errorMessage() }}</p>
       } @else if (holidays().length === 0) {
-        <p class="state-message">Pro vybrané období nejsou žádné nadcházející svátky.</p>
+        <p class="state-message">For the selected period, there are no upcoming holidays.</p>
       } @else {
         <ion-select
           label="Vyberte svátek"
@@ -50,12 +50,12 @@
               <div aria-live="polite">
                 <p class="countdown-value">{{ remainingDays() }}</p>
                 @if (remainingDays() === 0) {
-                  <p>Svátek je dnes!</p>
+                  <p>Holiday is today!</p>
                 } @else {
-                  <p>Počet dnů do svátku</p>
+                  <p>Days until holiday</p>
                 }
               </div>
-              <p>Počítáno k {{ today() | date: 'd. M. y' }}.</p>
+              <p>Calculated to {{ today() | date: 'd. M. y' }}.</p>
             </ion-card-content>
           </ion-card>
         }
@@ -63,11 +63,11 @@
     </section>
 
     <section>
-      <h2>O aplikaci</h2>
-      <p>Autor: Jméno a příjmení</p>
+      <h2>About app:</h2>
+      <p>Author: Sviatoslav Balema</p>
       <p>AP5PM 2026 – CounterApp</p>
       <p>
-        Zdroj dat:
+        Data sources::
         <a href="https://www.openholidaysapi.org/en/">OpenHolidays API</a>
         (<a href="https://www.openholidaysapi.org/en/faq/">licence ODbL</a>).
       </p>

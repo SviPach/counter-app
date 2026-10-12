@@ -71,7 +71,7 @@ export class Tab3Page {
   holidayName(holiday: PublicHoliday): string {
     // API jsme požádali o češtinu; vezmeme první název.
     // ?. ošetří chybějící položku a ?? doplní náhradní text, pokud text chybí.
-    return holiday.name[0]?.text ?? 'Svátek bez názvu';
+    return holiday.name[0]?.text ?? 'Holiday without name';
   }
 
   async loadHolidays(): Promise<void> {
@@ -104,9 +104,9 @@ export class Tab3Page {
       }
     } catch (error) {
       // Podrobnosti patří do konzole, uživateli zobrazíme krátkou zprávu.
-      console.error('Svátky se nepodařilo načíst.', error);
+      console.error('Error while reading holidays.', error);
 
-      this.errorMessage.set('Svátky se nepodařilo načíst. Zkuste to znovu.');
+      this.errorMessage.set('Error while reading holidays. Try again.');
     } finally {
       // finally se provede po úspěchu i po chybě: vypne spinner a povolí tlačítko.
       this.loading.set(false);
